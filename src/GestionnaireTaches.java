@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -8,7 +9,9 @@ public class GestionnaireTaches {
 
     public static void main(String[] args) {
         int choix;
-        do {
+        try {
+
+            do {
             afficherMenu();
             choix = scanner.nextInt();
             scanner.nextLine(); // Pour consommer la nouvelle ligne restante après nextInt()
@@ -33,6 +36,11 @@ public class GestionnaireTaches {
                     System.out.println("Choix invalide. Veuillez réessayer.");
             }
         } while (choix != 5);
+            
+        } catch (InputMismatchException e) {
+            System.out.println("Erreur : Veuillez saisir un chiffre !");
+        }
+        
     }
 
     private static void afficherMenu() {
